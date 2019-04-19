@@ -1,8 +1,8 @@
 name: battery_optimization
-description: A new flutter plugin project.
-version: 0.0.1
-author:
-homepage:
+description: A simple plugin to check if the app is ignoring battery optimizations.
+version: 0.1.0
+author: Sachin Ganesh <sachin@dreamsoftin.com>
+homepage: https://github.com/SachinGanesh/battery_optimization
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

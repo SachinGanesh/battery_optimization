@@ -1,14 +1,26 @@
 # battery_optimization
 
-A new flutter plugin project.
+A simple plugin to check if the app is ignoring battery optimizations (Android Only)
 
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+### Check if app is ignoring battery optimization
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```dart
+BatteryOptimization.isIgnoringBatteryOptimizations().then((onValue) {
+    setState(() {
+        if (onValue) {
+            // Igonring Battery Optimization
+        } else {
+            // App is under battery optimization
+        }
+    });
+});
+```
+
+### Take user to battery optimization settings
+this opens the battery optimization settings.  Apps can be placed on the whitelist through the settings UI
+
+```dart
+BatteryOptimization.openBatteryOptimizationSettings();
+```
