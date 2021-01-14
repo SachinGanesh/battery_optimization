@@ -51,6 +51,10 @@ public class BatteryOptimizationPlugin implements MethodCallHandler {
   }
 
   boolean isIgnoringBatteryOptimizations() {
+    // return true if sdk version is below 23
+    if(android.os.Build.VERSION.SDK_INT<23)
+      return true;
+    
     Intent intent = new Intent();
     String packageName = mRegistrar.activeContext().getPackageName();
     mPowerManager = (PowerManager) (mRegistrar.activeContext().getSystemService(POWER_SERVICE));
@@ -65,6 +69,10 @@ public class BatteryOptimizationPlugin implements MethodCallHandler {
   }
 
   String openBatteryOptimizationSettings() {
+    // return Success if sdk version is below 23
+    if(android.os.Build.VERSION.SDK_INT<23)
+      return "Success";
+    
     Intent intent = new Intent();
     intent.setAction(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
     mRegistrar.activeContext().startActivity(intent);
